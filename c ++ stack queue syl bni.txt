@@ -1,0 +1,174 @@
+#include<iostream>
+using namespace std;
+
+#define SIZE 5
+void Push(int mystack[], int s, int item)
+{
+        for(int i=0; i<s; i++)
+        {
+            if(mystack[i]==0)
+            {
+                mystack[i] = item;
+                break;
+            }
+        }
+
+}
+
+bool IsEmpty(int mystack[], int s)
+{
+    int t=0;
+    for(int i=s-1; i>=0; i--)
+    {
+        if(mystack[i]!=0)
+        {
+            t++;
+        }
+    }
+
+    if(t>0)
+    {
+        cout << "Stack is not empty" << endl;
+        return false;
+    }
+    else
+    {
+        cout << "Stack is empty" << endl;
+        return true;
+    }
+
+
+
+
+//    int p=0;
+//    for(int i=0; i<s; i++)
+//    {
+//        if(mystack[i]==0)
+//        {
+//            p++;
+//        }
+//    }
+//    if(p==4)
+//    {
+//        cout << "Stack is empty" << endl;
+//        return true;
+//    }
+//    else
+//    {
+//        cout << "Stack is not empty" << endl;
+//        return false;
+//    }
+}
+
+bool IsFull(int mystack[], int s)
+{
+    int p=0;
+    for(int i=0; i<s; i++)
+    {
+        if(mystack[i]==0)
+        {
+            p++;
+        }
+    }
+    if(p==0)
+    {
+        cout << "Stack is Full" << endl;
+    }
+    else
+    {
+        cout << "Stack is not Full" << endl;
+    }
+}
+
+void Pop(int mystack[], int s)
+{
+    for(int i=s-1; i>=0; i--)
+    {
+        if(mystack[i]!=0)
+        {
+            mystack[i] = 0;
+            break;
+        }
+    }
+}
+
+void FindTop(int mystack[], int s)
+{
+    for(int i=s-1; i>=0; i--)
+    {
+        if(mystack[i]!=0)
+        {
+            cout << "Top: " << mystack[i] << endl;
+            break;
+        }
+    }
+}
+
+void Print(int mystack[], int s)
+{
+    for(int i=s-1; i>=0; i--)
+    {
+        if(mystack[i]!=0)
+        {
+            cout << mystack[i] << " ";
+        }
+    }
+    cout << endl;
+}
+
+
+
+int main()
+{
+    int mystack[SIZE];
+    for(int i=0; i<SIZE; i++)
+    {
+        mystack[i] = 0;
+    }
+
+    IsEmpty(mystack, SIZE);  //stack is empty.
+
+
+
+    Push(mystack, SIZE, 5);
+    Push(mystack, SIZE, 7);
+    Push(mystack, SIZE, 4);
+    Push(mystack, SIZE, 2);
+
+    IsEmpty(mystack, SIZE);  // satck is empty
+
+    Print(mystack, SIZE);     //  2475
+
+    IsFull(mystack, SIZE);
+
+     Push(mystack, SIZE, 6);
+
+      Print(mystack, SIZE);
+
+     IsFull(mystack, SIZE);
+
+     Pop(mystack, SIZE);
+     Pop(mystack, SIZE);
+
+      Print(mystack, SIZE);
+
+     FindTop(mystack, SIZE);
+
+      IsEmpty(mystack, SIZE);  // satck is empty
+
+     Pop(mystack, SIZE);
+     Pop(mystack, SIZE);
+     Pop(mystack, SIZE);
+
+      Print(mystack, SIZE);
+
+
+
+
+
+
+
+
+
+    return 0;
+}
